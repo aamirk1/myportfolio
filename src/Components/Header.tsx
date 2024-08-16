@@ -1,18 +1,32 @@
-import { Anchor } from "@mantine/core";
-
+import { IconHexagonLetterA } from "@tabler/icons-react";
+import SideBar from "./SideBar";
 const Header = () => {
-    return (
-        <nav>
-            <h1>Portfolio</h1>
-            <div>
-            <Anchor href="#about" underline="never">About</Anchor>
-            <Anchor href="#skills" underline="never">Skills</Anchor>
-            <Anchor href="#experience" underline="never">Experience</Anchor>
-            <Anchor href="#work" underline="never">Work</Anchor>
-            <Anchor href="#contact" underline="never">Wontact</Anchor>
-            </div>
-        </nav>
-    );
-}
+  return (
+    <nav className="flex bg-bgColor h-[18vh] items-center px-10 dm-mono-regular justify-between">
+      <IconHexagonLetterA size={60} color="#64FFDA" stroke={1.25} />
+      <div className="md:flex gap-8 hidden">
+        <a className="text-textColor hover:text-primaryColor" href="#about">
+          About
+        </a>
+        <a className="text-textColor hover:text-primaryColor" href="#skills">
+          Skills
+        </a>
+        <a
+          className="text-textColor hover:text-primaryColor"
+          href="#experience"
+        >
+          Experience
+        </a>
+        <a className="text-textColor hover:text-primaryColor" href="#work">
+          Work
+        </a>
+        <a className="text-textColor hover:text-primaryColor" href="#contact">
+          Contact
+        </a>
+      </div>
+      <SideBar />
+    </nav>
+  );
+};
 
 export default Header;
