@@ -1,26 +1,24 @@
-import { Button, Drawer } from "@mantine/core";
+import { Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconHexagonLetterA } from "@tabler/icons-react";
+import { navLinks } from "./Header";
 
 const SideBar = () => {
-  const [opened, { open, close }] = useDisclosure(false);
+  const [opened, { toggle }] = useDisclosure(false);
   return (
     <>
-      <Drawer
-        className="md:hidden"
+
+      <Drawer.Root className="md:hidden !-z-10"
         position="right"
         opened={opened}
-        onClose={close}
-        size={"50vw"}
-        title={<IconHexagonLetterA size={60} color="#64FFDA" stroke={1.25} />}
-        overlayProps={{ opacity: 0.5, blur: 4 }}
-      >
-        
-      </Drawer>
+        onClose={toggle}
+        size={"50vw"}>
+        <Drawer.Overlay className="!-z-0" style={{ opacity: 0.5, blur: 4 }} />
+        <Drawer.Content className="!-z-0" bg="#0A192F">
+          <Drawer.Body className="mt-20 flex flex-col gap-5" bg="#0A192F">{navLinks(true)}</Drawer.Body>
+        </Drawer.Content>
+      </Drawer.Root>
 
-      <Button className="md:!hidden" onClick={open}>
-        Open drawer
-      </Button>
+      <Burger className="md:!hidden !z-10" size="lg" color="#64FFDA" opened={opened} onClick={toggle}/>
     </>
   );
 };
