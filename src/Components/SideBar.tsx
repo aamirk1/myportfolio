@@ -14,7 +14,7 @@ const SideBar = () => {
         size={"50vw"}>
         <Drawer.Overlay className="!-z-0" style={{ opacity: 0.5, blur: 4 }} />
         <Drawer.Content className="!-z-0" bg="#0A192F">
-          <Drawer.Body className="mt-20 flex flex-col gap-5" bg="#0A192F">{navLinks(true)}</Drawer.Body>
+          <Drawer.Body className="mt-20 flex flex-col gap-5" bg="#0A192F">{navLinks(true,toggle)}</Drawer.Body>
         </Drawer.Content>
       </Drawer.Root>
 
